@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field_plus/intl_phone_field.dart';
 
 void main() {
   runApp(MyApp());
@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                   color: Theme.of(context).primaryColor,
                   textColor: Colors.white,
                   onPressed: () {
-                    _formKey.currentState.validate();
+                    _formKey.currentState?.validate();
                   },
                 ),
               ],

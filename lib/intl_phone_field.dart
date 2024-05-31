@@ -1,4 +1,4 @@
-library intl_phone_field;
+library intl_phone_field_plus;
 
 import 'dart:async';
 
@@ -323,7 +323,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                         ListTile(
                           leading: Image.asset(
                             'assets/flags/${filteredCountries[index].code.toLowerCase()}.png',
-                            package: 'intl_phone_field',
+                            package: 'intl_phone_field_plus',
                             width: 32,
                           ),
                           title: Text(
@@ -376,7 +376,10 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
       focusNode: widget.focusNode,
       onFieldSubmitted: widget.onSubmitted,
       decoration: widget.decoration.copyWith(
-        prefix: _buildFlagsButton(),
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 8.0, bottom: 2.0),
+          child: _buildFlagsButton(),
+        ),
         counterText: !widget.enabled ? '' : null,
       ),
       style: widget.style,
@@ -433,6 +436,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               if (widget.enabled &&
                   widget.showDropdownIcon &&
@@ -443,7 +447,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
               if (widget.showCountryFlag) ...[
                 Image.asset(
                   'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
-                  package: 'intl_phone_field',
+                  package: 'intl_phone_field_plus',
                   width: 32,
                 ),
                 SizedBox(width: 8),
